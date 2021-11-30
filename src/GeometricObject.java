@@ -4,6 +4,8 @@
  */
 import java.awt.*;
 
+
+
 abstract public class GeometricObject
 {
     private Color boundaryColor;        //boundary color
