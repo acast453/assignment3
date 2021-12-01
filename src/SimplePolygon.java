@@ -63,8 +63,13 @@ public class SimplePolygon extends GeometricObject {
 
 
     LineSegment[] getEdges() {
+LineSegment [] edges = new LineSegment[vertNumber];
 
-        return new LineSegment[0];
+for (int i =0; i < vertNumber; i++) {
+    edges[i] = new LineSegment(vertexList[i], vertexList[(i++) % vertNumber]);
+}
+
+        return edges;
     }
 
 
