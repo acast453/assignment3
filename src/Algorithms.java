@@ -172,8 +172,7 @@ class SweepLine
         int n = sl.size();
         double x = segm.getBegin().getX();
         double y = segm.getBegin().getY();
-        while (i<n &&
-                y>new Line(sl.get(i).getBegin(), sl.get(i).getEnd()).getY(x))
+        while (i<n &&  y >new Line(sl.get(i).getBegin(), sl.get(i).getEnd()).getY(x))
         {
             i++;
         }

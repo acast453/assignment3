@@ -6,8 +6,68 @@ import java.awt.Graphics;
  */
 public class LineSegment extends GeometricObject
 {
+    private Point begin;
+    private Point end;
 
-    //. . .
+    public LineSegment(){
+        begin = new Point(0,0);
+        end = new Point(1,1);
+
+    }
+
+    public LineSegment(Point b, Point e){
+        begin = b;
+        end =e;
+
+    }
+@Override
+    public void draw(Graphics g){
+        g.setColor(getBoundaryColor());
+        g.drawLine((int)begin.getX(), (int)begin.getY(), (int)end.getX(),(int)end.getY());
+    }
+
+public Point getBegin(){
+        return begin;
+}
+
+public void setBegin(Point b){
+        begin = b;
+}
+
+
+public Point getEnd(){
+        return end;
+}
+
+public void setEnd(Point e){
+        end = e;
+}
+public double greatestX(){
+        return begin.getX() > end.getX() ? begin.getX() : end.getX();
+}
+
+public double greatestY(){
+        return begin.getY() > end.getY() ? begin.getY() : end.getY();
+}
+
+public double smallestX() {
+    return begin.getX() < end.getX() ? begin.getX() : end.getX();
+}
+
+public double smallestY(){
+    return begin.getY() < end.getY() ? begin.getY() : end.getY();
+}
+public String toString(){
+        String str = "LINE_SEGEMENT " + super.toString() + "\n";
+        str += begin + "\n" + end;
+        return str;
+}
+
+public void translate(Vector v){
+        begin.translate(v);
+        end.translate(v);
+}
+
 
     /**
      * Determines if two numbers have the same sign.
@@ -46,7 +106,7 @@ public class LineSegment extends GeometricObject
         double y4 = ls.getEnd().getY();
 
         //line1 is the line that goes through the two points defining this line segment
-        Line line1 = new Line(begin, end);
+         Line line1 = new Line(begin, end);
 
         double a1 = line1.getA();
         double b1 = line1.getB();
@@ -96,8 +156,5 @@ public class LineSegment extends GeometricObject
         }
     }
 
-    @Override
-    public void draw(Graphics g) {
 
-    }
 }

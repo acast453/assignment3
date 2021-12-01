@@ -125,6 +125,31 @@ public class Line extends GeometricObject {
             }
 
         }
+
+        public int pointRelativePosition(Point p)
+        {
+            int relativePosition = 0;
+            if (!isVertical()) {
+                double yCoord = getY(p.getX());
+                if (yCoord > p.getY()) relativePosition = -1;
+                else
+                    if (yCoord == p.getY()) relativePosition = 0;
+                    else relativePosition = 1;
+
+            }
+            else
+            {
+                double xCoord = -c / a; // can also be obtained with getX(p.getY())';
+                if (xCoord > p.getX()) relativePosition = -1;
+                else
+                    if (xCoord == p.getX()) relativePosition = 0;
+                    else relativePosition = 1;
+            }
+            return relativePosition;
+        }
+
+
+
         public String toString() {
             String str = "Line " + a + " " + b + " " + super.toString();
 
