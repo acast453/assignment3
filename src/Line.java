@@ -23,6 +23,11 @@ public class Line extends GeometricObject {
         c = 0;
     }
 
+
+    public Line(Point p , Point q){
+
+    }
+
     /**
      * Instantiates a line object as ax + by + c = 0 or y = (-a/b) x + (-c/b)
      *

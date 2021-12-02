@@ -1,11 +1,15 @@
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class GraphDisplay extends JPanel
 {
     GeometricObject[] gArray; //geometric objects
-
+    private BufferedImage image;
     /**
      * Parameterized constructor.
      */
@@ -13,9 +17,23 @@ public class GraphDisplay extends JPanel
     {
         this.gArray = g;
 
-        setBackground(Color.white);
+        //setBackground(Color.white);
         Dimension d = new Dimension(width, height);
         setPreferredSize(d);
+
+        try
+        {
+            image = ImageIO.read(new File("fiumap.png"));
+        }
+        catch (IOException ex)
+        {
+            System.out.println("Image file not found!");
+        }
+
+
+
+
+
 
     }
 
@@ -29,6 +47,11 @@ public class GraphDisplay extends JPanel
         super.paint(g); //clears window
 
         //draws geometric objects
+
+        Dimension d = getSize();
+
+        g.drawImage(image, 0, 0, d.width, d.height, this);
+
         for (GeometricObject e:gArray)
         {
             e.draw(g); //invokes object's draw method through polymorphism
