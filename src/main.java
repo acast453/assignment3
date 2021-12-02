@@ -17,26 +17,30 @@ public class main {
         int frameHeight = 410;
 
         int pointNumber = 10;
-        Line [] obj = new Line[pointNumber];
+        LineSegment [] obj = new LineSegment[pointNumber];
 
         GeometricObject [] lineArray = obj;
 
         Random rnd = new Random();
-        double a, b, c;
+        double x,y;
 
         for (int i =0;i <pointNumber; i++){
-            a = 1 + rnd.nextInt(5);
-            b = 1 + rnd.nextInt(5);
-            c = -(100 + rnd.nextInt(400));
+            x = rnd.nextInt(frameWidth);
+            y = rnd.nextInt(frameHeight);
+            Point begin = new Point(x,y);
 
-            lineArray[i] = new Line(a,b,c);
+
+            x = rnd.nextInt(frameWidth);
+            y = rnd.nextInt(frameHeight);
+            Point end = new Point(x,y);
+
+
+            lineArray[i] = new LineSegment(begin, end);
             lineArray[i].setBoundaryColor(Color.blue);
 
         }
 
         FrameDisplay frame = new FrameDisplay(frameWidth,frameHeight,lineArray);
-
-        
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
