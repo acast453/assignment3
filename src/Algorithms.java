@@ -113,7 +113,7 @@ for(int i =0; i < pol1.getNumberOfVertices();i++)
 {
     LineSegment e1 = edges1[i];
 
-    for (int j =0; j < pol1.getNumberOfVertices(); j++)
+    for (int j =0; j < pol2.getNumberOfVertices(); j++)
     {
         LineSegment e2 = edges2[j];
         Point p = new Point();
