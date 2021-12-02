@@ -10,9 +10,9 @@ import java.awt.geom.Dimension2D;
  * ax +by + c = 0
  */
 public class Line extends GeometricObject {
-    private double a;
-    private double b;
-    private double c;
+    private double a; //x
+    private double b; //y
+    private double c;  //constant
 
     /**
      * Instantiates a line object as -x + y = 0 or y = x
@@ -25,8 +25,23 @@ public class Line extends GeometricObject {
 
 
     public Line(Point p , Point q){
-
+//Point p and q are the same points
+        if (p.getX()==q.getX() && p.getY()==q.getY())
+            throw new IllegalStateException();
+        else {
+            if (p.getX()==q.getX()) {
+                this.a = 1;
+                this.b = 0;
+                this.c = -(p.getX());
+            }
+            else {
+                this.a = (q.getY() - p.getY()) / (q.getX() - p.getX());
+                this.b = -1;
+                this.c = p.getY() - (a * p.getX());
+            }
+        }
     }
+
 
     /**
      * Instantiates a line object as ax + by + c = 0 or y = (-a/b) x + (-c/b)

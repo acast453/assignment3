@@ -13,11 +13,13 @@ public class main {
     public main(){
         // Frame Size
 
-        int frameWidth = 500;
-        int frameHeight = 500;
+        int frameWidth = 430;
+        int frameHeight = 410;
 
         int pointNumber = 10;
-        Line [] lineArray = new Line[pointNumber];
+        Line [] obj = new Line[pointNumber];
+
+        GeometricObject [] lineArray = obj;
 
         Random rnd = new Random();
         double a, b, c;
@@ -33,8 +35,12 @@ public class main {
         }
 
         FrameDisplay frame = new FrameDisplay(frameWidth,frameHeight,lineArray);
+
+        
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
 
     }
 }

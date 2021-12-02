@@ -18,12 +18,9 @@ public class GraphDisplay extends JPanel
         this.gArray = g;
 
         //setBackground(Color.white);
-        Dimension d = new Dimension(width, height);
-        setPreferredSize(d);
-
         try
         {
-            image = ImageIO.read(new File("fiumap.png"));
+            image = ImageIO.read(new File("src/fiumap.PNG"));
         }
         catch (IOException ex)
         {
@@ -31,7 +28,9 @@ public class GraphDisplay extends JPanel
         }
 
 
-
+        setBackground(Color.white);
+        Dimension d = new Dimension(width, height);
+        setPreferredSize(d);
 
 
 

@@ -15,7 +15,7 @@ public class FrameDisplay extends JFrame
      * @param height frame height
      * @param g geometric objects to be depicted in this frame
      */
-    public FrameDisplay(int width, int height, Line[] g)
+    public FrameDisplay(int width, int height, GeometricObject[] g)
     {
         setTitle("Selection of Points");
         setSize(width, height);
