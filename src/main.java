@@ -187,7 +187,7 @@ public class main {
                 }
             }
 
-            Thread.sleep(1);
+            Thread.sleep(5);
             frame.repaint();
         }
 

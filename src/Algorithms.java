@@ -117,7 +117,7 @@ for(int i =0; i < pol1.getNumberOfVertices();i++)
     {
         LineSegment e2 = edges2[j];
         Point p = new Point();
-        if (e1.intersect(e2,p) ==1) return true;
+        if (e1.intersect(e2,p) == 1) return true;
     }
 }
 
@@ -163,7 +163,7 @@ class SweepLine
     /**
      * Adds a line segment; sweep line remains sorted.
      *
-     * @param index index of a line segment
+     * @param segm index of a line segment
      */
     public void add(LineSegment segm)
     {
