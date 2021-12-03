@@ -20,7 +20,7 @@ public class main {
         int frameWidth = 430;
         int frameHeight = 410;
 
-        int pointNumber = 2;
+        int pointNumber = 6;
 
         GeometricObject [] lineArray = new GeometricObject[pointNumber];
         ArrayList<SimplePolygon> simplePolygons = new ArrayList<SimplePolygon>();
@@ -55,8 +55,103 @@ public class main {
         rectPolygonOne.addVertex(p62);
         rectPolygonOne.addVertex(p63);
 
+        Point p7 = new Point(177, 171);
+        Point p8 = new Point(198, 171);
+        Point p9 = new Point(198, 181);
+        Point p10 = new Point(195, 181);
+        Point p11 = new Point(195, 196);
+        Point p12 = new Point(194, 196);
+        Point p13 = new Point(194, 206);
+        Point p14 = new Point(191, 206);
+        Point p15 = new Point(191, 210);
+        Point p16 = new Point(177, 210);
+
+        SimplePolygon rectPolygonTwo = new SimplePolygon();
+
+        rectPolygonTwo.addVertex(p7);
+        rectPolygonTwo.addVertex(p8);
+        rectPolygonTwo.addVertex(p9);
+        rectPolygonTwo.addVertex(p10);
+        rectPolygonTwo.addVertex(p11);
+        rectPolygonTwo.addVertex(p12);
+        rectPolygonTwo.addVertex(p13);
+        rectPolygonTwo.addVertex(p14);
+        rectPolygonTwo.addVertex(p15);
+        rectPolygonTwo.addVertex(p16);
+
+        // WO1C
+        Point p17 = new Point(88, 345);
+        Point p18 = new Point(96, 345);
+        Point p19 = new Point(96, 348);
+        Point p20 = new Point(98, 348);
+        Point p21 = new Point(98, 352);
+        Point p22 = new Point(88, 352);
+
+
+
+        SimplePolygon rectPolygon3 = new SimplePolygon();
+
+        rectPolygon3.addVertex(p17);
+        rectPolygon3.addVertex(p18);
+        rectPolygon3.addVertex(p19);
+        rectPolygon3.addVertex(p20);
+        rectPolygon3.addVertex(p21);
+        rectPolygon3.addVertex(p22);
+
+        // Wo1
+        Point p23 = new Point(66, 344);
+        Point p24 = new Point(80, 344);
+        Point p25 = new Point(80, 349);
+        Point p26 = new Point(78, 349);
+        Point p27 = new Point(78, 353);
+        Point p28 = new Point(76, 353);
+        Point p29 = new Point(76, 354);
+        Point p30 = new Point(74, 354);
+        Point p31 = new Point(74, 353);
+        Point p32 = new Point(66, 353);
+
+        SimplePolygon rectPolygon4 = new SimplePolygon();
+
+        rectPolygon4.addVertex(p23);
+        rectPolygon4.addVertex(p24);
+        rectPolygon4.addVertex(p25);
+        rectPolygon4.addVertex(p26);
+        rectPolygon4.addVertex(p27);
+        rectPolygon4.addVertex(p28);
+        rectPolygon4.addVertex(p29);
+        rectPolygon4.addVertex(p30);
+        rectPolygon4.addVertex(p31);
+        rectPolygon4.addVertex(p32);
+
+
+        //As
+
+        Point p33 = new Point(95, 337);
+        Point p34 = new Point(98, 337);
+        Point p35 = new Point(98, 335);
+        Point p36 = new Point(102, 335);
+        Point p37 = new Point(102, 340);
+        Point p38 = new Point(95, 340);
+
+        SimplePolygon rectPolygon5 = new SimplePolygon();
+
+        rectPolygon5.addVertex(p33);
+        rectPolygon5.addVertex(p34);
+        rectPolygon5.addVertex(p35);
+        rectPolygon5.addVertex(p36);
+        rectPolygon5.addVertex(p37);
+        rectPolygon5.addVertex(p38);
+
         lineArray[1] = rectPolygonOne;
+        lineArray[2] = rectPolygonTwo;
+        lineArray[3] = rectPolygon3;
+        lineArray[4] = rectPolygon4;
+        lineArray[5] = rectPolygon5;
         simplePolygons.add(rectPolygonOne);
+        simplePolygons.add(rectPolygonTwo);
+        simplePolygons.add(rectPolygon3);
+        simplePolygons.add(rectPolygon4);
+        simplePolygons.add(rectPolygon5);
         rectPolygonOne.setInteriorColor(Color.BLUE);
 
         FrameDisplay frame = new FrameDisplay(frameWidth,frameHeight,lineArray);
@@ -80,22 +175,19 @@ public class main {
 
             for (SimplePolygon poly : simplePolygons) {
                 SimplePolygon watchmanPoly = new SimplePolygon();
-                watchmanPoly.addVertex(new Point(0, 0));
-                watchmanPoly.addVertex(new Point(10, 0));
-                watchmanPoly.addVertex(new Point(10, 10));
-                watchmanPoly.addVertex(new Point(0, 10));
-
-                // System.out.println(watchmanPoly.getEdges()[0] + " " + watchmanPoly.getEdges()[1]);
-                System.out.println(watchmanPoly.getEdges().length);
+                watchmanPoly.addVertex(new Point(watchman.smallestX(), watchman.smallestY()));
+                watchmanPoly.addVertex(new Point(watchman.greatestX(), watchman.smallestY()));
+                watchmanPoly.addVertex(new Point(watchman.greatestX(), watchman.greatestY()));
+                watchmanPoly.addVertex(new Point(watchman.smallestX(), watchman.greatestY()));
 
             
-                // if (Algorithms.isThereAnIntersection(watchmanPoly, poly)) {
-                //     xDirection *= -1;
-                //     yDirection *= -1;
-                // }
+                if (Algorithms.isThereAnIntersection(watchmanPoly, poly)) {
+                    xDirection = Math.random();
+                    yDirection = Math.random();
+                }
             }
 
-            Thread.sleep(1000);
+            Thread.sleep(1);
             frame.repaint();
         }
 
