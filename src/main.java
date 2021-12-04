@@ -20,7 +20,7 @@ public class main {
         int frameWidth = 430;
         int frameHeight = 410;
 
-        int pointNumber = 6;
+        int pointNumber = 9;
 
         GeometricObject [] lineArray = new GeometricObject[pointNumber];
         ArrayList<SimplePolygon> simplePolygons = new ArrayList<SimplePolygon>();
@@ -142,17 +142,87 @@ public class main {
         rectPolygon5.addVertex(p37);
         rectPolygon5.addVertex(p38);
 
+
+
+        //New
+        Point p39 = new Point(300, 135);
+        Point p40 = new Point(325, 135);
+        Point p41 = new Point(325, 224);
+        Point p42 = new Point(355, 224);
+        Point p43 = new Point(355, 265);
+        Point p44 = new Point(300, 265);
+
+        SimplePolygon rectPolygon6 = new SimplePolygon();
+
+        rectPolygon6.addVertex(p39);
+        rectPolygon6.addVertex(p40);
+        rectPolygon6.addVertex(p41);
+        rectPolygon6.addVertex(p42);
+        rectPolygon6.addVertex(p43);
+        rectPolygon6.addVertex(p44);
+
+
+
+        //New 7
+        Point p45 = new Point(100, 135);
+        Point p46 = new Point(125, 135);
+        Point p47 = new Point(125, 265);
+        Point p48 = new Point(70, 265);
+        Point p49 = new Point(70, 220);
+        Point p50 = new Point(100, 220);
+
+        SimplePolygon rectPolygon7 = new SimplePolygon();
+
+        rectPolygon7.addVertex(p45);
+        rectPolygon7.addVertex(p46);
+        rectPolygon7.addVertex(p47);
+        rectPolygon7.addVertex(p48);
+        rectPolygon7.addVertex(p49);
+        rectPolygon7.addVertex(p50);
+
+
+//New 8
+        Point p56 = new Point(320, 335);
+        Point p51 = new Point(370, 335);
+        Point p52 = new Point(370, 375);
+        Point p53 = new Point(415, 375);
+        Point p54 = new Point(415, 390);
+        Point p55 = new Point(320, 390);
+
+        SimplePolygon rectPolygon8 = new SimplePolygon();
+
+        rectPolygon8.addVertex(p51);
+        rectPolygon8.addVertex(p52);
+        rectPolygon8.addVertex(p53);
+        rectPolygon8.addVertex(p54);
+        rectPolygon8.addVertex(p55);
+        rectPolygon8.addVertex(p56);
+
+
+
+
+
+
+
+
+
         lineArray[1] = rectPolygonOne;
         lineArray[2] = rectPolygonTwo;
         lineArray[3] = rectPolygon3;
         lineArray[4] = rectPolygon4;
         lineArray[5] = rectPolygon5;
+        lineArray[6] = rectPolygon6;
+        lineArray[7] = rectPolygon7;
+        lineArray[8] = rectPolygon8;
         simplePolygons.add(rectPolygonOne);
         simplePolygons.add(rectPolygonTwo);
         simplePolygons.add(rectPolygon3);
         simplePolygons.add(rectPolygon4);
         simplePolygons.add(rectPolygon5);
-        rectPolygonOne.setInteriorColor(Color.BLUE);
+        simplePolygons.add(rectPolygon6);
+        simplePolygons.add(rectPolygon7);
+        simplePolygons.add(rectPolygon8);
+        rectPolygonOne.setInteriorColor(Color.RED);
 
         FrameDisplay frame = new FrameDisplay(frameWidth,frameHeight,lineArray);
 
@@ -163,6 +233,7 @@ public class main {
         Double yDirection = Math.random();
 
         while (true) {
+            //Thread.sleep(3 );
             watchman.translate(new Vector(xDirection, yDirection));
 
             if (watchman.greatestX() > 400 || watchman.smallestX() < 0) {
@@ -182,12 +253,13 @@ public class main {
 
             
                 if (Algorithms.isThereAnIntersection(watchmanPoly, poly)) {
+
                     xDirection = Math.random();
                     yDirection = Math.random();
                 }
             }
 
-            Thread.sleep(5);
+            Thread.sleep(3 );
             frame.repaint();
         }
 
