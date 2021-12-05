@@ -231,6 +231,8 @@ public class main {
         lineArray[7] = rectPolygon7;
         lineArray[8] = rectPolygon8;
         lineArray[9] = rectPolygon9;
+
+
         simplePolygons.add(rectPolygonOne);
         simplePolygons.add(rectPolygonTwo);
         simplePolygons.add(rectPolygon3);
@@ -239,6 +241,9 @@ public class main {
         simplePolygons.add(rectPolygon6);
         simplePolygons.add(rectPolygon7);
         simplePolygons.add(rectPolygon8);
+        simplePolygons.add(rectPolygon9);
+
+
         rectPolygonOne.setInteriorColor(Color.RED);
 
         FrameDisplay frame = new FrameDisplay(frameWidth,frameHeight,lineArray);
@@ -246,11 +251,10 @@ public class main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
-        Double xDirection = Math.random();
-        Double yDirection = Math.random();
+        double xDirection = Math.random();
+        double yDirection = Math.random();
 
         while (true) {
-            Thread.sleep(10 );
             watchman.translate(new Vector(xDirection, yDirection));
 
 
@@ -270,14 +274,18 @@ public class main {
                 watchmanPoly.addVertex(new Point(watchman.greatestX(), watchman.greatestY()));
                 watchmanPoly.addVertex(new Point(watchman.smallestX(), watchman.greatestY()));
 
-                if (Algorithms.isThereAnIntersection(watchmanPoly, poly)) {
+                boolean intersection = Algorithms.isThereAnIntersection(watchmanPoly, poly);
 
-                    xDirection = Math.random();
-                    yDirection = Math.random();
+                if (intersection) {
+                    System.out.println(intersection);
+                    xDirection = - Math.random();
+                    yDirection = - Math.random();
+
                 }
             }
 
             //Thread.sleep(1000 );
+            Thread.sleep(3);
             frame.repaint();
         }
 
