@@ -20,7 +20,7 @@ public class GraphDisplay extends JPanel
         //setBackground(Color.white);
         try
         {
-            image = ImageIO.read(new File("src/fiumap.PNG"));
+            image = ImageIO.read(new File("src/floorplans.PNG"));
         }
         catch (IOException ex)
         {

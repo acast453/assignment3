@@ -20,7 +20,7 @@ public class main {
         int frameWidth = 430;
         int frameHeight = 410;
 
-        int pointNumber = 9;
+        int pointNumber = 10;
 
         GeometricObject [] lineArray = new GeometricObject[pointNumber];
         ArrayList<SimplePolygon> simplePolygons = new ArrayList<SimplePolygon>();
@@ -191,17 +191,33 @@ public class main {
 
         SimplePolygon rectPolygon8 = new SimplePolygon();
 
+        rectPolygon8.addVertex(p56);
         rectPolygon8.addVertex(p51);
         rectPolygon8.addVertex(p52);
         rectPolygon8.addVertex(p53);
         rectPolygon8.addVertex(p54);
         rectPolygon8.addVertex(p55);
-        rectPolygon8.addVertex(p56);
 
 
+//New 9
+        Point p57 = new Point(290, 50);
+        Point p58 = new Point(395, 50);
+        Point p59 = new Point(395, 90);
+        Point p60_2 = new Point(365, 90);
+        Point p61_2 = new Point(365, 70);
+        Point p62_2 = new Point(335, 70);
+        Point p63_2 = new Point(335, 90);
+        Point p64_2 = new Point(290, 90);
+        SimplePolygon rectPolygon9 = new SimplePolygon();
 
-
-
+        rectPolygon9.addVertex(p57);
+        rectPolygon9.addVertex(p58);
+        rectPolygon9.addVertex(p59);
+        rectPolygon9.addVertex(p60_2);
+        rectPolygon9.addVertex(p61_2);
+        rectPolygon9.addVertex(p62_2);
+        rectPolygon9.addVertex(p63_2);
+        rectPolygon9.addVertex(p64_2);
 
 
 
@@ -214,6 +230,7 @@ public class main {
         lineArray[6] = rectPolygon6;
         lineArray[7] = rectPolygon7;
         lineArray[8] = rectPolygon8;
+        lineArray[9] = rectPolygon9;
         simplePolygons.add(rectPolygonOne);
         simplePolygons.add(rectPolygonTwo);
         simplePolygons.add(rectPolygon3);
@@ -233,8 +250,10 @@ public class main {
         Double yDirection = Math.random();
 
         while (true) {
-            //Thread.sleep(3 );
+            Thread.sleep(10 );
             watchman.translate(new Vector(xDirection, yDirection));
+
+
 
             if (watchman.greatestX() > 400 || watchman.smallestX() < 0) {
                 xDirection *= -1;
@@ -251,7 +270,6 @@ public class main {
                 watchmanPoly.addVertex(new Point(watchman.greatestX(), watchman.greatestY()));
                 watchmanPoly.addVertex(new Point(watchman.smallestX(), watchman.greatestY()));
 
-            
                 if (Algorithms.isThereAnIntersection(watchmanPoly, poly)) {
 
                     xDirection = Math.random();
@@ -259,7 +277,7 @@ public class main {
                 }
             }
 
-            Thread.sleep(3 );
+            //Thread.sleep(1000 );
             frame.repaint();
         }
 
