@@ -1,3 +1,9 @@
+/**
+ * Author Name: Anthony Castillo
+ * Panther ID: 5910063
+ */
+
+
 import java.awt.*;
 
 public class SimplePolygon extends GeometricObject {

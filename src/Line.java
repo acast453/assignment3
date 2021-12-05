@@ -1,16 +1,15 @@
+/**
+ * Author Name: Anthony Castillo
+ * Panther ID: 5910063
+ */
+
+
+
+
 import java.awt.Toolkit;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-/**
- * This class represents a line in the plane, given by the equation
-Expand
-Line.java
-8 KB
-﻿
-import java.awt.Toolkit;
-import java.awt.Dimension;
-import java.awt.Graphics;
 
 /**
  * This class represents a line in the plane, given by the equation

@@ -1,3 +1,9 @@
+/**
+ * Author Name: Anthony Castillo
+ * Panther ID: 5910063
+ */
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
@@ -277,7 +283,7 @@ public class main {
                 boolean intersection = Algorithms.isThereAnIntersection(watchmanPoly, poly);
 
                 if (intersection) {
-                    System.out.println(intersection);
+                    System.out.println("We have an intersection = " + intersection);
                     xDirection = - Math.random();
                     yDirection = - Math.random();
 

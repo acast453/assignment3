@@ -1,4 +1,7 @@
-
+/**
+ * Author Name: Anthony Castillo
+ * Panther ID: 5910063
+ */
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
